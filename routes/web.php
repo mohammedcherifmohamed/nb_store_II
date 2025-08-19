@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\HomeController;
 use App\Mail\SendEnrolment;
 use App\Http\Controllers\SendEmail;
+use App\Http\Controllers\ContactMeController;
 
 
 
@@ -15,6 +16,7 @@ use App\Http\Controllers\SendEmail;
 
 Route::get('/', [HomeController::class, 'loadhome'])->name('home');
 Route::get('/SubmitEnrollment', [SendEmail::class, 'submitEnrollment'])->name('enroll.post');
+Route::get('/SendQuestion', [ContactMeController::class, 'SendQuestion'])->name('contact.post');
 
 Route::get('admin/login', [AdminController::class, 'loadLogin'])->name('login');
 Route::post('admin/login', [AuthenticationController::class, 'checklogin'])->name('login.post');

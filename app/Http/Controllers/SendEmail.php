@@ -31,9 +31,13 @@ class SendEmail extends Controller
             'phone' => $request->phone,
             'notes' => $request->notes,
         ];
+        try {
+          Mail::to('devtest42.me@gmail.com')->send(new SendEnrolment($data));
+         return response()->json(['success' => true, 'message' => 'Enrollment email sent']);
 
-        Mail::to('devtest42.me@gmail.com')->send(new SendEnrolment($data));
+        } catch (\Exception $e) {
+            return "Mail failed: " . $e->getMessage();
+        }
 
-        return response()->json(['success' => true, 'message' => 'Enrollment email sent']);
     }
 }

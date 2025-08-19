@@ -179,23 +179,23 @@
             
             <div class="flex flex-col lg:flex-row gap-12">
                 <div class="lg:w-1/2">
-                    <form id="contact-form" class="bg-white p-8 rounded-xl shadow-md">
+                    <form  action="{{ route('contact.post') }}" method="GET" id="contact-form" class="bg-white p-8 rounded-xl shadow-md">
                         <h1 class="text-xl font-bold text-blue-500 mb-6" >You Have Any  Question Ask Here </h1>
                         <div class="mb-6">
                             <label for="name" class="block text-gray-700 font-medium mb-2">Full Name</label>
-                            <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <input name="full_name" type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                             <p id="name-error" class="text-red-500 text-sm mt-1 hidden">Please enter your name</p>
                         </div>
                         
                         <div class="mb-6">
                             <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
-                            <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <input name="email" type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                             <p id="email-error" class="text-red-500 text-sm mt-1 hidden">Please enter a valid email</p>
                         </div>
                         
                         <div class="mb-6">
                             <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
-                            <textarea id="message" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                            <textarea name="message" id="message" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
                             <p id="message-error" class="text-red-500 text-sm mt-1 hidden">Please enter your message</p>
                         </div>
                         
