@@ -106,6 +106,7 @@ document.getElementById('enroll-form').addEventListener('submit', function(e) {
     .then(data => {
         if(data.success){
             alert(data.message);
+            // i wanna redirect him to success page
             closeEnrollModal();
             this.reset();
         } else {

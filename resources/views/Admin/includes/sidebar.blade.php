@@ -20,15 +20,25 @@
                     </div>
                 </div>
                 
-                <nav class="mt-8">
-                    <a href="#" class="flex items-center py-3 px-4 active-link rounded-lg mb-2">
-                        <i class="fas fa-book-open mr-3 text-blue-500"></i>
-                        <span>My Courses</span>
-                    </a>
-                    <a href="{{route('logout')}}" class="flex items-center py-3 px-4 text-gray-600 hover:bg-red-600 rounded-lg mb-2">
-                        <i class="fas fa-sign-out-alt mr-3"></i>
-                        <span>Logout</span>
-                    </a>
-                </nav>
+               <nav class="mt-8">
+    <a href="{{ route('admin.dashboard') }}" 
+       class="flex items-center py-3 px-4 rounded-lg mb-2 {{ request()->routeIs('admin.dashboard') ? 'active-link' : '' }}">
+        <i class="fas fa-book-open mr-3 text-blue-500 {{ request()->routeIs('admin.dashboard') ? 'active-link text-blue-800' : '' }}"></i>
+        <span>My Courses</span>
+    </a>
+
+    <a href="{{ route('admin.load') }}" 
+       class="flex items-center py-3 px-4 rounded-lg mb-2 {{ request()->routeIs('admin.load') ? 'active-link' : '' }}">
+        <i class="fa-solid fa-users mr-3 text-blue-500 {{ request()->routeIs('admin.load') ? 'active-link text-blue-800 ' : '' }}"></i>
+        <span>Admins</span>
+    </a>
+
+    <a href="{{ route('logout') }}" 
+       class="flex items-center py-3 px-4 text-gray-600 hover:bg-red-600 rounded-lg mb-2">
+        <i class="fas fa-sign-out-alt mr-3"></i>
+        <span>Logout</span>
+    </a>
+</nav>
+
             </div>
         </div>

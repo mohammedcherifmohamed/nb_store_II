@@ -14,7 +14,7 @@
             <header class="bg-white shadow-sm py-4 px-6 flex justify-between items-center">
                 @include('Admin.includes.nav')
                 <h1 class="text-2xl px-10 font-bold text-gray-800">Dashboard</h1>
-            <a href="{{route('home')}}" class="text-2xl nav-link text-gray-700 font-bold mx-20">Home</a>
+                <a href="{{route('home')}}" class="text-2xl nav-link text-gray-700 font-bold mx-20">Home</a>
 
             </header>
 

@@ -32,6 +32,8 @@ Route::prefix('admin')->middleware(['auth'])->group(function(){
     Route::put('/course/{id}', [CoursesController::class, 'update'])->name('course.update');
     Route::get('/courses/{id}/json', [CoursesController::class, 'getCourse'])->name('courses.json');
     Route::get('/courses/filter', [CoursesController::class, 'filter'])->name('courses.filter');
+    
+    Route::get('/admins', [AdminController::class, 'loadAdmin'])->name('admin.load');
 
 
 });

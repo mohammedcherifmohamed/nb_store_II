@@ -56,6 +56,25 @@
         .input-field:focus {
             box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.2);
         }
+         .dashboard-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .active-link {
+            background-color: #3B82F6;
+            color: white;
+        }
+        .active-link:hover {
+            background-color: #2563EB;
+        }
+       
+        .main-content {
+            transition: all 0.3s ease;
+        }
+
+        #admin-modal, #edit-admin-modal {
+            transition: opacity 0.3s ease;
+        }
         @media (max-width: 1023px) {
             .sidebar {
                 transform: translateX(-100%);

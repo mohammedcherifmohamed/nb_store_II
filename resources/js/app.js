@@ -5,3 +5,4 @@ import './courses';
 import './login';
 import './editCourse';
 import './filter-courses';
+import './admins';
