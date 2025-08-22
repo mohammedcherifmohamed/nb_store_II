@@ -1,94 +1,81 @@
-// document.addEventListener('DOMContentLoaded', function() {
-  
+document.addEventListener("DOMContentLoaded", function () {
+    const searchInput = document.getElementById("search-input");
+    const statusFilter = document.getElementById("status-filter");
+    const tableBody = document.getElementById("courses-table-body");
 
-//     // DOM Elements
-//     const coursesTableBody = document.getElementById('courses-table-body');
-//     const addCourseBtn = document.getElementById('add-course-btn');
-//     const courseModal = document.getElementById('course-modal');
-//     const closeModalBtn = document.getElementById('close-modal');
-//     const cancelCourseBtn = document.getElementById('cancel-course');
-//     const courseForm = document.getElementById('course-form');
-//     const modalTitle = document.getElementById('modal-title');
-    
-//     // Form fields
-//     const courseIdField = document.getElementById('course-id');
-//     const courseTitleField = document.getElementById('course-title');
-//     const courseDescriptionField = document.getElementById('course-description');
-//     const courseDurationField = document.getElementById('course-duration');
-//     const coursePriceField = document.getElementById('course-price');
-//     const courseStatusField = document.getElementById('course-status');
-//     const startDateField = document.getElementById('start-date');
-//     const endDateField = document.getElementById('end-date');
+    function filterCourses() {
+        const search = searchInput.value;
+        const status = statusFilter.value;
 
-   
-//     // Format date as MM/DD/YYYY
-//     function formatDate(dateString) {
-//         const date = new Date(dateString);
-//         return date.toLocaleDateString('en-US');
-//     }
+        fetch('/admin/courses/filter', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').getAttribute("content")
+            },
+            body: JSON.stringify({ search, status })
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.success) {
+                tableBody.innerHTML = "";
 
-//     // Open modal for adding new course
-//     function openAddCourseModal() {
-//         modalTitle.textContent = 'Add New Course';
-//         courseForm.reset();
-//         courseIdField.value = '';
-//         courseModal.classList.remove('hidden');
-//         document.body.style.overflow = 'hidden';
-//     }
+                if (data.courses.length > 0) {
+                    data.courses.forEach(course => {
+                        const row = `
+                            <tr class="hover:bg-gray-50">
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="font-medium text-gray-900">${course.title}</div>
+                                </td>
+                                <td class="px-6 py-4 max-w-xs">
+                                    <div class="text-gray-600 truncate">${course.description ?? ''}</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-gray-600">${course.duration ?? ''}</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <div class="text-gray-600">${course.price} DA</div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="px-2 py-1 text-xs rounded-full 
+                                        ${course.status === 'active' 
+                                            ? 'bg-green-100 text-green-800' 
+                                            : 'bg-yellow-100 text-yellow-800'}">
+                                        ${course.status}
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                    <button onclick="fetchCourse(${course.id})" 
+                                        class="text-blue-500 hover:text-blue-700 mr-3 edit-course-btn">
+                                        Edit
+                                    </button>
+                                    <form action="/admin/courses/${course.id}" 
+                                        method="POST" 
+                                        class="inline-block" 
+                                        onsubmit="return confirm('Are you sure you want to delete this course?');">
+                                        <input type="hidden" name="_token" value="${document.querySelector('meta[name="csrf-token"]').getAttribute("content")}">
+                                        <input type="hidden" name="_method" value="DELETE">
+                                        <button type="submit" class="text-red-500 hover:text-red-700">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        `;
+                        tableBody.insertAdjacentHTML("beforeend", row);
+                    });
+                } else {
+                    tableBody.innerHTML = `
+                        <tr>
+                            <td colspan="6" class="text-center py-4 text-gray-500">
+                                No course found
+                            </td>
+                        </tr>
+                    `;
+                }
+            }
+        })
+        .catch(err => console.error("Error:", err));
+    }
 
-
-
-//     // Close modal
-//     function closeCourseModal() {
-//         courseModal.classList.add('hidden');
-//         document.body.style.overflow = 'auto';
-//     }
-
-//     // Event listeners
-//     addCourseBtn.addEventListener('click', openAddCourseModal);
-//     closeModalBtn.addEventListener('click', closeCourseModal);
-//     cancelCourseBtn.addEventListener('click', closeCourseModal);
-    
-//     // Close modal when clicking outside
-//     courseModal.addEventListener('click', (e) => {
-//         if (e.target === courseModal) {
-//             closeCourseModal();
-//         }
-//     });
-    
-//     // Close modal with Escape key
-//     document.addEventListener('keydown', (e) => {
-//         if (e.key === 'Escape' && !courseModal.classList.contains('hidden')) {
-//             closeCourseModal();
-//         }
-//     });
-
-//     // Initialize the table
-    
-//     // Mobile sidebar toggle (same as before)
-//     const mobileMenuButton = document.createElement('button');
-//     mobileMenuButton.innerHTML = '<i class="fas fa-bars text-xl"></i>';
-//     mobileMenuButton.className = 'md:hidden fixed bottom-6 right-6 bg-blue-500 text-white p-4 rounded-full shadow-lg z-50';
-//     document.body.appendChild(mobileMenuButton);
-    
-//     const sidebar = document.querySelector('.sidebar');
-    
-//     mobileMenuButton.addEventListener('click', function() {
-//         sidebar.classList.toggle('-translate-x-full');
-//     });
-    
-//     // Responsive sidebar behavior
-//     function handleSidebar() {
-//         if (window.innerWidth < 768) {
-//             sidebar.classList.add('-translate-x-full');
-//         } else {
-//             sidebar.classList.remove('-translate-x-full');
-//         }
-//     }
-    
-//     // Initial check
-//     handleSidebar();
-    
-//     // Listen for window resize
-//     window.addEventListener('resize', handleSidebar);
-// });
+    searchInput.addEventListener("input", filterCourses);
+    statusFilter.addEventListener("change", filterCourses);
+});

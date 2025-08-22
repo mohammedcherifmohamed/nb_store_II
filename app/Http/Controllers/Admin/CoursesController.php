@@ -115,13 +115,23 @@ public function getCourse($id)
     ]);
 }
 
-public function filter(Request $request)
+    public function filter(Request $request)
 {
-    $query = Course::query(); 
-    if ($request->search) {
+    $query = Courses::query();
+
+    // Search filter
+    if (!empty($request->search)) {
         $query->where('title', 'like', '%' . $request->search . '%');
     }
 
+    // Status filter
+    if (!empty($request->status)) {
+        if ($request->status === 'all') {
+            // Do nothing → return all courses
+        } else {
+            $query->where('status', $request->status);
+        }
+    }
 
     $courses = $query->get();
 
@@ -130,6 +140,8 @@ public function filter(Request $request)
         'courses' => $courses
     ]);
 }
+
+
 
 
 

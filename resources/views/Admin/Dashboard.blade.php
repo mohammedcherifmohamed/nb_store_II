@@ -413,4 +413,5 @@
 @section('scripts') 
     @vite('resources/js/dashboard.js') 
     @vite('resources/js/editCourse.js') 
+    @vite('resources/js/courses.js') 
 @endsection
