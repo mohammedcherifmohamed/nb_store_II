@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Mobile Menu Toggle
+
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
     if(mobileMenuButton && mobileMenu){
@@ -33,52 +34,51 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.enrollBtn').forEach(button => {
         button.addEventListener('click', function() {
             const courseId = this.dataset.id; // assuming you have data-id attribute on buttons
+            console.log(courseId);
 
-            fetch(`/admin/courses/${courseId}/json`)
+            fetch(`/home/courses/${courseId}/json`)
                 .then(response => {
                     if (!response.ok) throw new Error('Network response was not ok');
                     return response.json();
                 })
                  .then(data => {
-                    if (!data.successe) throw new Error('Course not found');
+                    if (!data.success) throw new Error('Course not found');
                     const course = data.course; // access course inside the JSON
 
                     // Show modal
                     const modal = document.getElementById('enroll-modal');
                     const enroll_form = document.getElementById('enroll-form');
                     modal.classList.remove('hidden');
-                    enroll_form.innerHTML += `<input type="text" name="title" value="${course.title}" hidden>`;
+                    document.getElementById('enroll-course-title').value = course.title;
                     // Fill course info
                     const infoContainer = document.getElementById('enroll-course-info');
                     infoContainer.innerHTML = `
                         <h4 class="text-lg font-semibold mb-2">${course.title}</h4>
                         <p class="text-gray-600 mb-2">${course.description}</p>
                        <ul class="text-gray-700 text-sm space-y-2 mt-3">
-    <li class="flex items-center gap-2">
-        ⏳ <span class="font-semibold">Duration:</span>
-        <span class="text-black">${course.duration}</span>
-    </li>
-    <li class="flex items-center gap-2">
-        💰 <span class="font-semibold">Price:</span>
-        <span class="text-green-600 font-medium">${course.price} DA</span>
-    </li>
-    <li class="flex items-center gap-2">
-        📅 <span class="font-semibold">Start Date:</span>
-        <span class="text-blue-600">${course.start_date}</span>
-    </li>
-    <li class="flex items-center gap-2">
-        📅 <span class="font-semibold">End Date:</span>
-        <span class="text-red-600">${course.end_date}</span>
-    </li>
-</ul>
-
+                            <li class="flex items-center gap-2">
+                                ⏳ <span class="font-semibold">Duration:</span>
+                                <span class="text-black">${course.duration}</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                💰 <span class="font-semibold">Price:</span>
+                                <span class="text-green-600 font-medium">${course.price} DA</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                📅 <span class="font-semibold">Start Date:</span>
+                                <span class="text-blue-600">${course.start_date}</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                📅 <span class="font-semibold">End Date:</span>
+                                <span class="text-red-600">${course.end_date}</span>
+                            </li>
+                        </ul>
                     `;
 
                     // Set hidden input
                     document.getElementById('enroll-course-id').value = course.id;
                 })
                 .catch(error => {
-                    console.error('Error fetching course:', error);
                     alert('Failed to load course data.');
                 });
         });
@@ -89,32 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('enroll-modal').classList.add('hidden');
         });
     });
-     document.querySelectorAll('.cancelButton').forEach(button => {
-        button.addEventListener('click', function() {
-            document.getElementById('enroll-modal').classList.add('hidden');
-        });
-    });
     
-document.getElementById('enroll-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    const formData = new FormData(this);
-    fetch('/SubmitEnrollment?' + new URLSearchParams(new FormData(this)), {
-        method: 'GET'
-    })
-    .then(res => res.json())
-    .then(data => {
-        if(data.success){
-            alert(data.message);
-            // i wanna redirect him to success page
-            closeEnrollModal();
-            this.reset();
-        } else {
-            alert('Failed to send email');
-        }
-    })
-    .catch(err => console.error(err));
-    });
 
 
 });
@@ -129,31 +104,7 @@ document.getElementById('enroll-form').addEventListener('submit', function(e) {
         }
     });
 
-    // document.querySelectorAll('.enrollBtn').forEach(button => {
-    //     button.addEventListener('click', function() {
-    //         console.log('hello');
-    //     })
-    // });
-
-//   function openEnrollModal(course) {
-//     console.log('tes2');
-
-    
-
-    // const infoContainer = document.getElementById('enroll-course-info');
-    // infoContainer.innerHTML = `
-    //     <h4 class="text-lg font-semibold mb-2">${course.title}</h4>
-    //     <p class="text-gray-600 mb-2">${course.description}</p>
-    //     <ul class="text-gray-700 text-sm space-y-1">
-    //         <li>⏳ Duration: ${course.duration}</li>
-    //         <li>💰 Price: ${course.price} DA</li>
-    //         <li>📅 Start Date: ${course.start_date}</li>
-    //         <li>📅 End Date: ${course.end_date}</li>
-    //     </ul>
-    // `;
-
-    // document.getElementById('enroll-course-id').value = course.id;
-// }
+   
 
 function closeEnrollModal() {
     document.getElementById('enroll-modal').classList.add('hidden');

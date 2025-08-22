@@ -9,31 +9,30 @@ use Illuminate\Support\Facades\Mail;
 
 class SendEmail extends Controller
 {
- public function submitEnrollment(Request $request)
-    {
+ public function submitEnrollment(Request $request){
         $request->validate([
             'title' => 'required|string',
             'name' => 'required|string',
-            'Familly_name' => 'required|string',
+            'family_name' => 'required|string',
             'age' => 'required|numeric',
             'wilaya' => 'required|string',
             'phone' => 'required|numeric',
+            'notes' => 'nullable|string',
         ]);
 
-        // $course = Courses::findOrFail($request->course_id);
 
         $data = [
             'course_title' => $request->title,
             'name' => $request->name,
-            'Familly_name' => $request->Familly_name,
+            'Familly_name' => $request->family_name,
             'age' => $request->age,
             'wilaya' => $request->wilaya,
             'phone' => $request->phone,
             'notes' => $request->notes,
         ];
         try {
-          Mail::to('devtest42.me@gmail.com')->send(new SendEnrolment($data));
-         return response()->json(['success' => true, 'message' => 'Enrollment email sent']);
+          Mail::to('galaxyphoneacademy@gmail.com')->send(new SendEnrolment($data));
+            return view("EnrollSuccess");
 
         } catch (\Exception $e) {
             return "Mail failed: " . $e->getMessage();

@@ -10,13 +10,24 @@ use App\Mail\SendEnrolment;
 use App\Http\Controllers\SendEmail;
 use App\Http\Controllers\ContactMeController;
 use App\Http\Controllers\Admin\Auth\ForgotAdminPasswordController;
+use Illuminate\Support\Facades\Session;
 
+Route::get('/lang/{locale}', function ($locale) {
+    $availableLocales = ['en', 'ar'];
 
+    if (in_array($locale, $availableLocales)) {
+        Session::put('locale', $locale);
+    }
+
+    return redirect()->back();
+});
 
 
 
 Route::get('/', [HomeController::class, 'loadhome'])->name('home');
-Route::get('/SubmitEnrollment', [SendEmail::class, 'submitEnrollment'])->name('enroll.post');
+Route::get('home/courses/{id}/json', [CoursesController::class, 'getCourse'])->name('HomeCourses.json');
+
+Route::post('/SubmitEnrollment', [SendEmail::class, 'submitEnrollment'])->name('enroll.post');
 Route::get('/SendQuestion', [ContactMeController::class, 'SendQuestion'])->name('contact.post');
 
 Route::get('admin/login', [AdminController::class, 'loadLogin'])->name('login');

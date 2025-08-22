@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ app()->getLocale() }}" dir="{{ app()->getLocale() == 'ar' ? 'rtl' : 'ltr' }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +9,8 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+       <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+
 
     @vite(['resources/css/app.css'])
     <style>
@@ -20,9 +22,17 @@
             --warning: #F59E0B;
             --danger: #EF4444;
         }
-        body {
+
+        html[lang="en"] body {
             font-family: 'Poppins', sans-serif;
-            color: var(--text);
+                        color: var(--text);
+
+        }
+
+        html[lang="ar"] body {
+            font-family: 'Tajawal', sans-serif;
+                        color: var(--text);
+
         }
         .sidebar {
             transition: all 0.3s ease;

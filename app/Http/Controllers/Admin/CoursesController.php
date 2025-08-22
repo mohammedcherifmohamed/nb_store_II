@@ -110,7 +110,7 @@ public function getCourse($id)
 {
     $course = Courses::findOrFail($id);
     return response()->json([
-        "successe" => true ,
+        "success" => true ,
         "course" => $course
     ]);
 }

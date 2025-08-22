@@ -1,0 +1,68 @@
+<?php
+return [
+    'home' => 'Home',
+    'courses' => 'Courses',
+    'about' => 'About',
+    'contact' => 'Contact',
+    'language' => 'Language',
+    'hero_title'     => 'Master the Art of',
+    'hero_highlight' => 'Phone Repair',
+    'hero_subtitle'  => 'Learn professional phone repair skills from industry experts. Our hands-on courses will prepare you for a rewarding career in the growing mobile repair industry.',
+    'hero_button'    => 'Start Learning',
+    'hero_alt'       => 'Phone Repair',
+    'our_courses' => 'Our Courses',
+    'courses_description' => 'Comprehensive training programs designed to take you from beginner to professional phone technician.',
+    'duration' => '⏳ Duration',
+    'price' => '💰 Price',
+    'start_date' => '📅 Start Date',
+    'end_date' => '📅 End Date',
+    'enroll_now' => 'Enroll Now',
+    'no_courses' => 'No course found',
+    'enroll_in_course' => 'Enroll in Course',
+    'name' => 'Name',
+    'family_name' => 'Family Name',
+    'age' => 'Age',
+    'wilaya' => 'Wilaya',
+    'phone' => 'Phone Number',
+    'notes' => 'Additional Notes',
+    'cancel' => 'Cancel',
+    'submit' => 'Submit',
+    'about_title' => 'Why Choose Our Academy',
+    'about_subtitle' => "We're committed to providing the best phone repair education with practical, real-world training.",
+
+    'about_experience_title' => 'Our Experience',
+    'about_experience_text' => "With over 15 years of experience since 2005, we've perfected our training methods to provide the most comprehensive phone repair education.",
+
+    'about_hardware_title' => 'Hardware Repair',
+    'about_hardware_text' => '6 days of intensive hands-on hardware repair training',
+
+    'about_software_title' => 'Software Repair',
+    'about_software_text' => '4 days of software repair, flashing, and decoding',
+
+    'about_feature1_title' => 'Affordable Pricing',
+    'about_feature1_text' => 'Quality education at competitive prices with flexible payment options.',
+
+    'about_feature2_title' => 'Hands-on Training',
+    'about_feature2_text' => 'Learn by doing with real devices and tools in our modern lab.',
+
+    'about_feature3_title' => 'Expert Instructors',
+    'about_feature3_text' => 'Learn from industry professionals with years of repair experience.',
+
+    'about_feature4_title' => 'Certification',
+    'about_feature4_text' => 'Earn a recognized certificate upon course completion.',
+
+    'contact_title' => 'Contact Us',
+    'contact_subtitle' => 'Have questions? Get in touch with our team for more information about our courses.',
+    'contact_form_title' => 'Do you have any question? Ask here',
+    'contact_name' => 'Full Name',
+    'contact_name_error' => 'Please enter your name',
+    'contact_email' => 'Email Address',
+    'contact_email_error' => 'Please enter a valid email',
+    'contact_message' => 'Message',
+    'contact_message_error' => 'Please enter your message',
+    'contact_button' => 'Send Message',
+    'contact_location_title' => 'Our Location',
+    'contact_address' => 'Address: 47 Rue Megnouche, Birkhadem, Algiers',
+    'contact_hours' => "Monday - Friday: 9am - 6pm\nSaturday: 10am - 4pm\nSunday: Closed",
+
+];

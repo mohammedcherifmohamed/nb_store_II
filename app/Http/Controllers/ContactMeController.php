@@ -25,7 +25,7 @@ class ContactMeController extends Controller
         ];
 
         try {
-            Mail::to('devtest42.me@gmail.com')->send(new ContactMe($data));
+            Mail::to('galaxyphoneacademy@gmail.com')->send(new ContactMe($data));
             return view("mail.ContactSucces");
         } catch (\Exception $e) {
             return "Mail failed: " . $e->getMessage();

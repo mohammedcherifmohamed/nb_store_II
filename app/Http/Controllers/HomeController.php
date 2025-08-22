@@ -9,7 +9,7 @@ use App\Models\Courses;
 class HomeController extends Controller
 {
     public function loadhome(){
-        $courses = Courses::all();
+        $courses = Courses::where("status","active")->get();
         return view('home',compact('courses'));
     }
 }

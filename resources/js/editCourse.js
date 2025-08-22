@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 window.fetchCourse = function (courseId) {
-    fetch(`/admin/courses/${courseId}/json`)
+    fetch(`courses/${courseId}/json`)
         .then(response => response.json())
         .then(data => {
             const course = data.course;
