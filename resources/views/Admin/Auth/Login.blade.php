@@ -11,7 +11,12 @@
         </ul>
     </div>
 @endif
-        
+        @if (session('success'))
+            <x-alert type="success">
+                {{ session('success') }}
+            </x-alert>
+        @endif
+
     
     <div class="min-h-screen flex items-center justify-center bg-gray-50">
         <div class="w-full max-w-md mx-4">

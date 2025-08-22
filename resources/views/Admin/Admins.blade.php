@@ -27,7 +27,7 @@
                         <div class="flex justify-between items-center">
                             <div>
                                 <p class="text-gray-500">Total Admins</p>
-                                <h3 class="text-2xl font-bold text-gray-800">5</h3>
+                                <h3 class="text-2xl font-bold text-gray-800">{{$admins->count()}}</h3>
                             </div>
                             <div class="bg-blue-100 p-3 rounded-full">
                                 <i class="fas fa-user-shield text-blue-500 text-xl"></i>

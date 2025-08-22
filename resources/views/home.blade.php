@@ -124,51 +124,96 @@
 </div>
     </section>
 
-    <!-- Why Choose Us Section -->
-    <section id="about" class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-4">Why Choose Our Academy</h2>
-            <p class="text-lg text-gray-600 text-center max-w-2xl mx-auto mb-12">We're committed to providing the best phone repair education with practical, real-world training.</p>
+<!-- Why Choose Us Section -->
+    <section id="about" class="py-16 bg-gray-50"> 
+        <div class="container mx-auto px-4"> 
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-4">Why Choose Our Academy</h2> 
+            <p class="text-lg text-gray-600 text-center max-w-2xl mx-auto mb-12">We're committed to providing the best phone repair education with practical, real-world training.</p> 
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Feature 1 -->
-                <div class="bg-white p-6 rounded-xl shadow-md text-center">
-                    <div class="text-blue-500 text-4xl mb-4">
-                        <i class="fas fa-dollar-sign"></i>
+            <div class="flex flex-col lg:flex-row gap-12">
+                <!-- Left Column - Experience Information -->
+                <div class="lg:w-1/2 bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-2xl shadow-md">
+                    <div class="flex items-start mb-6">
+                        <div class="bg-blue-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-history text-blue-600 text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-800 mb-3">Our Experience</h3>
+                            <div class="bg-white p-6 rounded-xl shadow-sm mb-6">
+                                <p class="text-gray-700 text-lg italic border-l-4 border-blue-500 pl-4">
+                                    "With over 15 years of experience since 2005, we've perfected our training methods to provide the most comprehensive phone repair education."
+                                </p>
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Affordable Pricing</h3>
-                    <p class="text-gray-600">Quality education at competitive prices with flexible payment options.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-white p-5 rounded-xl shadow-sm">
+                            <div class="flex items-center mb-3">
+                                <div class="bg-blue-100 p-2 rounded-full mr-3">
+                                    <i class="fas fa-microchip text-blue-600"></i>
+                                </div>
+                                <h4 class="font-bold text-gray-800">Hardware Repair</h4>
+                            </div>
+                            <p class="text-gray-600 text-sm">6 days of intensive hands-on hardware repair training</p>
+                        </div>
+                        
+                        <div class="bg-white p-5 rounded-xl shadow-sm">
+                            <div class="flex items-center mb-3">
+                                <div class="bg-blue-100 p-2 rounded-full mr-3">
+                                    <i class="fas fa-code text-blue-600"></i>
+                                </div>
+                                <h4 class="font-bold text-gray-800">Software Repair</h4>
+                            </div>
+                            <p class="text-gray-600 text-sm">4 days of software repair, flashing, and decoding</p>
+                        </div>
+                    </div>
                 </div>
                 
-                <!-- Feature 2 -->
-                <div class="bg-white p-6 rounded-xl shadow-md text-center">
-                    <div class="text-blue-500 text-4xl mb-4">
-                        <i class="fas fa-laptop-code"></i>
+                <!-- Right Column - Original Features -->
+                <div class="lg:w-1/2">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8"> 
+                        <!-- Feature 1 --> 
+                        <div class="bg-white p-6 rounded-xl shadow-md text-center transition-transform duration-300 hover:translate-y-2"> 
+                            <div class="text-blue-500 text-4xl mb-4"> 
+                                <i class="fas fa-dollar-sign"></i> 
+                            </div> 
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Affordable Pricing</h3> 
+                            <p class="text-gray-600">Quality education at competitive prices with flexible payment options.</p> 
+                        </div> 
+                         
+                        <!-- Feature 2 --> 
+                        <div class="bg-white p-6 rounded-xl shadow-md text-center transition-transform duration-300 hover:translate-y-2"> 
+                            <div class="text-blue-500 text-4xl mb-4"> 
+                                <i class="fas fa-laptop-code"></i> 
+                            </div> 
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Hands-on Training</h3> 
+                            <p class="text-gray-600">Learn by doing with real devices and tools in our modern lab.</p> 
+                        </div> 
+                         
+                        <!-- Feature 3 --> 
+                        <div class="bg-white p-6 rounded-xl shadow-md text-center transition-transform duration-300 hover:translate-y-2"> 
+                            <div class="text-blue-500 text-4xl mb-4"> 
+                                <i class="fas fa-chalkboard-teacher"></i> 
+                            </div> 
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Expert Instructors</h3> 
+                            <p class="text-gray-600">Learn from industry professionals with years of repair experience.</p> 
+                        </div> 
+                         
+                        <!-- Feature 4 --> 
+                        <div class="bg-white p-6 rounded-xl shadow-md text-center transition-transform duration-300 hover:translate-y-2"> 
+                            <div class="text-blue-500 text-4xl mb-4"> 
+                                <i class="fas fa-certificate"></i> 
+                            </div> 
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Certification</h3> 
+                            <p class="text-gray-600">Earn a recognized certificate upon course completion.</p> 
+                        </div> 
                     </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Hands-on Training</h3>
-                    <p class="text-gray-600">Learn by doing with real devices and tools in our modern lab.</p>
-                </div>
-                
-                <!-- Feature 3 -->
-                <div class="bg-white p-6 rounded-xl shadow-md text-center">
-                    <div class="text-blue-500 text-4xl mb-4">
-                        <i class="fas fa-chalkboard-teacher"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Expert Instructors</h3>
-                    <p class="text-gray-600">Learn from industry professionals with years of repair experience.</p>
-                </div>
-                
-                <!-- Feature 4 -->
-                <div class="bg-white p-6 rounded-xl shadow-md text-center">
-                    <div class="text-blue-500 text-4xl mb-4">
-                        <i class="fas fa-certificate"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Certification</h3>
-                    <p class="text-gray-600">Earn a recognized certificate upon course completion.</p>
                 </div>
             </div>
-        </div>
+        </div> 
     </section>
+
 
 
     <!-- Contact Section -->

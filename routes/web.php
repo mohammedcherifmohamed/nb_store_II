@@ -23,9 +23,10 @@ Route::get('admin/login', [AdminController::class, 'loadLogin'])->name('login');
 Route::post('admin/login', [AuthenticationController::class, 'checklogin'])->name('login.post');
 
 Route::get('admin/logout', [AuthenticationController::class, 'logout'])->name('logout');
+// forgot password
 Route::get("admin/forgotPassword",[AuthenticationController::class,'LoadForgotPassword'])->name('forgot.load');
-Route::post("admin/forgotPassword",[ForgotAdminPasswordController::class,'checkAmdin'])->name('forgot.post');
-Route::get('/reset-password', [ForgotAdminPasswordController::class, 'showResetForm']);
+Route::post("admin/forgotPassword",[ForgotAdminPasswordController::class,'checkAdmin'])->name('forgot.post');
+Route::get('/reset-password/{token}', [ForgotAdminPasswordController::class, 'showResetForm']);
 Route::post('/reset-password', [ForgotAdminPasswordController::class, 'resetPassword']);
 
 

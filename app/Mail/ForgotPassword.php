@@ -40,7 +40,8 @@ class ForgotPassword extends Mailable
         return new Content(
             view: 'mail.ForgotPassword',
             with:[
-                "password" => $this->data['password'],
+            "resetLink" => url('/reset-password/' . $this->data['token']),
+
             
             ]
         );
