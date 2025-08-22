@@ -9,6 +9,7 @@ use App\Http\Controllers\HomeController;
 use App\Mail\SendEnrolment;
 use App\Http\Controllers\SendEmail;
 use App\Http\Controllers\ContactMeController;
+use App\Http\Controllers\Admin\Auth\ForgotAdminPasswordController;
 
 
 
@@ -22,6 +23,10 @@ Route::get('admin/login', [AdminController::class, 'loadLogin'])->name('login');
 Route::post('admin/login', [AuthenticationController::class, 'checklogin'])->name('login.post');
 
 Route::get('admin/logout', [AuthenticationController::class, 'logout'])->name('logout');
+Route::get("admin/forgotPassword",[AuthenticationController::class,'LoadForgotPassword'])->name('forgot.load');
+Route::post("admin/forgotPassword",[ForgotAdminPasswordController::class,'checkAmdin'])->name('forgot.post');
+Route::get('/reset-password', [ForgotAdminPasswordController::class, 'showResetForm']);
+Route::post('/reset-password', [ForgotAdminPasswordController::class, 'resetPassword']);
 
 
 Route::prefix('admin')->middleware(['auth'])->group(function(){
@@ -34,6 +39,13 @@ Route::prefix('admin')->middleware(['auth'])->group(function(){
     Route::get('/courses/filter', [CoursesController::class, 'filter'])->name('courses.filter');
     
     Route::get('/admins', [AdminController::class, 'loadAdmin'])->name('admin.load');
+    Route::post('/admins/add', [AdminController::class, 'store'])->name('admin.post');
+    Route::delete('/admins/delete/{id}', [AdminController::class, 'destroy'])->name('admin.delete');
+    Route::get('/admins/edit/{id}', [AdminController::class, 'getAdmin'])->name('admin.edit');
+    Route::put('/admins/update/{id}', [AdminController::class, 'update'])->name('admin.update');
+    Route::get('/admins/search', [AdminController::class, 'search'])->name('admins.search');
+
+
 
 
 });

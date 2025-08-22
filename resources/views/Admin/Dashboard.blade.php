@@ -409,3 +409,7 @@
 
 
 @endsection
+
+@section('scripts') 
+    @vite('resources/js/dashboard.js') 
+@endsection

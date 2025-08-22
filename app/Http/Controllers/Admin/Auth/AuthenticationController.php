@@ -31,4 +31,9 @@ class AuthenticationController extends Controller
         Auth::logout();
         return redirect()->back()->with('success', 'Logout successful!');
     }
+
+    public function LoadForgotPassword(){
+        return view('Admin.Auth.Forgot');
+    }
+
 }

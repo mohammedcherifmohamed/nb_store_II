@@ -65,7 +65,7 @@
                             <label for="remember-me" class="ml-2 block text-sm text-gray-700">Remember me</label>
                         </div>
                         <div class="text-sm">
-                            <a href="#" class="font-medium text-blue-500 hover:text-blue-700">Forgot password?</a>
+                            <a href="{{route('forgot.load')}}" class="font-medium text-blue-500 hover:text-blue-700">Forgot password?</a>
                         </div>
                     </div>
 
@@ -90,3 +90,7 @@
     </div>
 
     @endsection
+
+    {{-- @section('scripts')
+        @vite('resources/js/login.js')
+    @endsection --}}
